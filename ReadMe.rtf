@@ -5,8 +5,12 @@ Open the project in Eclipse  (or any IDE) and run it. You can test endpoints via
 
 Build up the DB by calling "http://localhost:9091/setupdb" so that you can have data to test with
 
-Below are sample rest calls:
-Sample add request for admin "http://localhost:9091/adminapi/add"
+Below are sample rest endpoints:
+
+ADMIN endpoints:
+Get list: "http://localhost:9091/adminapi/admins"
+Get single: "http://localhost:9091/adminapi//admin/{id}"
+Post with body: "http://localhost:9091/adminapi/add"
 {
     "firstName": "Kola2",
     "lastName": "Martins2",
@@ -15,16 +19,42 @@ Sample add request for admin "http://localhost:9091/adminapi/add"
     "creationDate":"2018-09-12",
     "enabled":true    
 }
+Put with body: "http://localhost:9091/adminapi/update"
+{
+    "id": 1,
+    "firstName": "Kola2222",
+    "lastName": "Martins2222",
+    "email": "kolamartinso2@gmail.com",
+    "password": "dsfsdf2",
+    "creationDate":"2018-09-12",
+    "enabled":true    
+}
 
-Sample add request for brand "http://localhost:9091/brandapi/add"
+
+BRAND endpoints:
+Get list: "http://localhost:9091/brandapi/brands"
+Get single: "http://localhost:9091/brandapi/brand/{id}"
+Post with body: "http://localhost:9091/brandapi/add"
 {
         "name": "Samsung",
         "creationDate": "2018-02-04",
         "enabled": true,
         "adminId": 1
 }
+Put with body: "http://localhost:9091/brandapi/update/{id}"
+{
+        "id": 2,
+        "name": "Samsung",
+        "creationDate": "2018-02-04",
+        "enabled": true,
+        "adminId": 1
+}
 
-Sample add request for  Category "http://localhost:9091/categoryapi/add"
+
+CATEGORY endpoints:
+Get list: "http://localhost:9091/categoryapi/categories"
+Get single: "http://localhost:9091/categoryapi/category/{id}"
+Post with body: "http://localhost:9091/categoryapi/add"
 {
 	"name":"TV",
 	"description":"High definition and 4K Series",
@@ -32,8 +62,21 @@ Sample add request for  Category "http://localhost:9091/categoryapi/add"
 	"enabled":true,
 	"admin":1
 }
+Put with body: "http://localhost:9091/categoryapi/update/{id}"
+{
+	"id":1,
+	"name":"TV",
+	"description":"OLED Curvy",
+	"creationDate":"2018-09-12",
+	"enabled":true,
+	"admin":1
+}
 
-Sample add request for Stock "http://localhost:9091/stockapi/add"
+
+STOCK endpoints:
+Get list: "http://localhost:9091/stockapi/stocks"
+Get single: "http://localhost:9091/stockapi/stock/{id}"
+Post with body: "http://localhost:9091/stockapi/add"
 {
     "description": "For home and office",
     "features": "60 inches, OLED Curve",
@@ -48,8 +91,28 @@ Sample add request for Stock "http://localhost:9091/stockapi/add"
     "categoryId": 2,
     "brandId": 2
 }
+Put with body: "http://localhost:9091/stockapi/add"
+{
+    "id":3,
+    "description": "For home and office",
+    "features": "60 inches, OLED Curve",
+    "costPrice": 2000000,
+    "sellingPrice": 3000000,
+    "orders": 0,
+    "lastOrder": "2018-08-01",
+    "remainingQuantity": 20,
+    "creationDate": "2018-05-04",
+    "enabled": true,
+    "adminId":1,
+    "categoryId": 2,
+    "brandId": 2
+}
 
-Sample add request for order "http://localhost:9091/orderedstockapi/add"
+
+ORDEREDSTOCK endpoints:
+Get list: "http://localhost:9091/orderedstockapi/orderedstocks"
+Get single: "http://localhost:9091/orderedstockapi/orderedstock/{id}"
+Post with body: "http://localhost:9091/orderedstockapi/add"
 {
 	"processingAdminId":1,
 	"listOfOrderedItems":[
